@@ -25,6 +25,18 @@ away_score = df.groupby('AwayTeam')['FTAG'].sum().sort_values(ascending=False).r
 away_score.columns = ['Team', 'Goals']
 total_score = pd.concat([home_score, away_score])
 total_score = total_score.groupby('Team')['Goals'].sum().sort_values(ascending=False).reset_index()
+
+home_conceded = df.groupby('HomeTeam')['FTAG'].sum().reset_index().rename(columns={'HomeTeam': 'Team', 'FTAG': 'HomeConceded'})
+away_conceded = df.groupby('AwayTeam')['FTHG'].sum().reset_index().rename(columns={'AwayTeam': 'Team', 'FTHG': 'AwayConceded'})
+
+home_score['HomeGoalDifference'] = home_score['Goals'] - home_conceded['HomeConceded']
+away_score['AwayGoalDifference'] = away_score['Goals'] - away_conceded['AwayConceded']
+
+goal_difference = pd.merge(home_score[['Team', 'HomeGoalDifference']], away_score[['Team', 'AwayGoalDifference']], on='Team')
+
+goal_difference['TotalGoalDifference'] = goal_difference['HomeGoalDifference'] + goal_difference['AwayGoalDifference']
+
+goal_difference = goal_difference.sort_values(by='TotalGoalDifference', ascending=False).reset_index(drop=True)
 #
 
 # Tabela de pontuação
@@ -45,6 +57,9 @@ total_points = pd.concat([home_points, away_points, total_draw_points]).groupby(
 
 total_points = total_points.sort_values(by='Points', ascending=False).reset_index()
 table = total_points.drop('index', axis=1)
+table['Points Mean'] = table['Points']/36
+table = table.merge(goal_difference, on= 'Team')
+table = table.drop(['HomeGoalDifference','AwayGoalDifference'], axis=1)
 
 positions = pd.DataFrame()
 
@@ -105,7 +120,7 @@ app.layout = dbc.Container([
         dbc.Col([
             dcc.Dropdown(
                 id='graph-dropdown',
-                options=['Mais Gols', 'Mais Vitorias', 'Mais Empates', 'Mais Derrotas', 'Tabela'],
+                options=['Tabela', 'Mais Gols', 'Mais Vitorias', 'Mais Empates', 'Mais Derrotas'],
                 value='Tabela'
             ),
             dcc.Dropdown(opcoes, value=['Man City'], id='team-dropdown', multi=True),
@@ -144,6 +159,16 @@ app.layout = dbc.Container([
                     },
                     {
                         'if': {'column_id': 'Team'},
+                        'backgroundColor': '#FFFFFF',
+                        'color': 'black'
+                    },
+                    {
+                        'if': {'column_id': 'TotalGoalDifference'},
+                        'backgroundColor': '#FFFFFF',
+                        'color': 'black'
+                    },
+                    {
+                        'if': {'column_id': 'Points Mean'},
                         'backgroundColor': '#FFFFFF',
                         'color': 'black'
                     }
