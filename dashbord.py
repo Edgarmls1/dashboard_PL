@@ -124,7 +124,7 @@ app.layout = dbc.Container([
                 value='Tabela'
             ),
             dcc.Dropdown(opcoes, value=['Man City'], id='team-dropdown', multi=True),
-            dcc.Graph(id='grafico-mais-gols')
+            dcc.Graph(id='grafico')
         ])
     ]),
     dbc.Row([
@@ -181,7 +181,7 @@ app.layout = dbc.Container([
 ##################################################################################################
 # CALLBACK
 @app.callback(
-    Output('grafico-mais-gols', 'figure'),
+    Output('grafico', 'figure'),
     [Input('team-dropdown', 'value'),
      Input('graph-dropdown', 'value')]
 )
