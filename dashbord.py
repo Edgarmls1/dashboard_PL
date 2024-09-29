@@ -14,7 +14,7 @@ df = df[(df['Season'] == '22-23') & (df['Div'] == 'Premier League')]
 colunas = ['Season', 'Div', 'Time', 'HTHG', 'HTAG', 'HTR', 'Referee', 'HC', 'AC', 'HF', 'AF', 'HY', 'AY', 'HR', 'AR', 'HS', 'AS', 'HST', 'AST']
 # justificativa da retirada de colunas
 # season, div -> todos os valores sao os mesmos
-# time, HTHG, HTAG, HTR, HC, AC, HF, AF, HY, AY, HR, AR, HS, AS, HST, AST, referee -> nao serao analiasdos
+# time, HTHG, HTAG, HTR, HC, AC, HF, AF, HY, AY, HR, AR, HS, AS, HST, AST, referee -> nao serao analisados
 
 df.drop(df[colunas], axis=1, inplace=True)
 
