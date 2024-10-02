@@ -46,22 +46,6 @@ Dependendo da seleção feita nos dropdowns, o código atualiza o gráfico exibi
 
 Além disso, a tabela exibe o total de pontos e a diferença de gols de cada time, com estilização condicional para destacar os times com pontuações mais baixas ou mais altas.
 
-## Execução
-
-Para rodar o Dashboard localmente, siga os seguintes passos:
-
-1. Instale as dependências:
-    ```bash
-    pip install dash dash-bootstrap-components pandas plotly
-    ```
-
-2. Execute o servidor local:
-    ```bash
-    python app.py
-    ```
-
-O Dashboard estará disponível em `http://127.0.0.1:8050/`.
-
 ## Observações Finais
 
 Este Dashboard oferece uma maneira intuitiva e visual de analisar os dados da Premier League, fornecendo insights rápidos sobre o desempenho dos times. É uma ferramenta valiosa para quem deseja entender a performance dos times durante a temporada 22/23.
