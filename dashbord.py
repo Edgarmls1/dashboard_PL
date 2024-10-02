@@ -57,7 +57,7 @@ total_points = pd.concat([home_points, away_points, total_draw_points]).groupby(
 
 total_points = total_points.sort_values(by='Points', ascending=False).reset_index()
 table = total_points.drop('index', axis=1)
-table['Points Mean'] = table['Points']/36
+table['Points Mean'] = table['Points']/38
 table = table.merge(goal_difference, on= 'Team')
 table = table.drop(['HomeGoalDifference','AwayGoalDifference'], axis=1)
 
