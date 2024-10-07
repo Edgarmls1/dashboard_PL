@@ -36,8 +36,9 @@ O código implementa a seguinte lógica para calcular a pontuação dos times:
 
 ### Layout do Dashboard
 O layout do Dashboard é definido utilizando componentes do **Dash** e **Bootstrap** para criar uma interface amigável. O usuário pode selecionar:
-1. **Tipo de gráfico**: Usando um dropdown, o usuário escolhe entre as opções de análise disponíveis (gols, vitórias, empates, derrotas ou tabela).
-2. **Times**: Outro dropdown permite selecionar um ou mais times para visualização personalizada.
+1. **Liga/País**: Dropdown que permite o usuário escolher qual liga será analisada.
+2. **Tipo de gráfico**: Usando um dropdown, o usuário escolhe entre as opções de análise disponíveis (gols, vitórias, empates, derrotas ou tabela).
+3. **Times**: Outro dropdown permite selecionar um ou mais times para visualização personalizada.
 
 ### Gráficos e Tabela
 Dependendo da seleção feita nos dropdowns, o código atualiza o gráfico exibido, podendo mostrar:
