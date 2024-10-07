@@ -1,6 +1,6 @@
-# Dashboard de Análise da Premier League 22/23
+# Dashboard de Análise das Top 5 Ligas Europeias na Temporada 22/23
 
-Este Dashboard foi criado utilizando a linguagem Python, com auxílio da biblioteca **Dash** para visualização e análise de dados da temporada 2022/2023 da **Premier League**, a primeira divisão do futebol inglês. Os dados foram coletados da plataforma **Kaggle** e permitem uma análise interativa sobre o desempenho dos times em diversas métricas, como gols marcados, vitórias, empates, derrotas e a variação de posição ao longo da temporada.
+Este Dashboard foi criado utilizando a linguagem Python, com auxílio da biblioteca **Dash** para visualização e análise de dados da temporada 2022/2023 das 5 principais ligas do futebol europeu: **Premier League**, **LaLiga**, **Bundesliga**, **Serie A** e **Ligue 1**. Os dados foram coletados da plataforma **Kaggle** e permitem uma análise interativa sobre o desempenho dos times em diversas métricas, como gols marcados, vitórias, empates, derrotas e a variação de posição ao longo da temporada.
 
 ## Funcionalidades
 
@@ -24,7 +24,7 @@ As seguintes bibliotecas são utilizadas no projeto:
 
 ### Carregamento e Processamento de Dados
 Os dados são carregados a partir de um arquivo CSV contendo informações detalhadas sobre os jogos da temporada. O código realiza as seguintes operações:
-- Filtra a temporada 22/23 e a divisão correspondente (Premier League).
+- Filtra a temporada 22/23 e a divisão correspondente.
 - Cria colunas que calculam a pontuação e a diferença de gols dos times.
 - Agrupa os dados para determinar o número total de gols marcados, gols sofridos e a diferença de gols.
 
@@ -48,4 +48,4 @@ Além disso, a tabela exibe o total de pontos e a diferença de gols de cada tim
 
 ## Observações Finais
 
-Este Dashboard oferece uma maneira intuitiva e visual de analisar os dados da Premier League, fornecendo insights rápidos sobre o desempenho dos times. É uma ferramenta valiosa para quem deseja entender a performance dos times durante a temporada 22/23.
+Este Dashboard oferece uma maneira intuitiva e visual de analisar os dados das top 5 ligas europeias, fornecendo insights rápidos sobre o desempenho dos times. É uma ferramenta valiosa para quem deseja entender a performance dos times durante a temporada 22/23.
